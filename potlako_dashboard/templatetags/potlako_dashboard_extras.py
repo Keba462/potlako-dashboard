@@ -106,11 +106,12 @@ def navigation_plan_summary_btn(model_wrapper):
 def cancer_dx_endpoint_button(model_wrapper):
     title = 'Add cancer diagnosis and treatment endpoint recording.'
     cancer_dx_endpoint_model_obj = model_wrapper.cancer_dx_endpoint_model_obj
-    is_exit = getattr(cancer_dx_endpoint_model_obj, 'exit', None) == 'exit'
+    is_exit = getattr(cancer_dx_endpoint_model_obj, 'final_deposition', None) == 'exit'
 
     return {
         'subject_identifier': model_wrapper.subject_identifier,
         'add_cancer_dx_endpoint_href': model_wrapper.cancer_dx_endpoint.href,
+        'cancer_dx_endpoint_model_obj': cancer_dx_endpoint_model_obj,
         'is_exit': is_exit,
         'title': title
     }
